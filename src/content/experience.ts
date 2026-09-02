@@ -1,12 +1,14 @@
 import type { Experience } from "@/lib/types";
 
 /**
- * Professional history, newest first.
+ * Professional history.
  *
- * Achievement bullets keep the CV's result-first phrasing: the measurable
- * outcome leads, the method follows. Every figure is traceable to the CV.
+ * The order of this array is not significant: `experiences` below sorts by end
+ * date so the timeline is always newest first. Achievement bullets keep the
+ * CV's result-first phrasing, where the measurable outcome leads and the
+ * method follows. Every figure is traceable to the CV.
  */
-export const experiences: Experience[] = [
+const roles: Experience[] = [
   {
     id: "google-meet",
     role: "Senior Software Engineer",
@@ -16,9 +18,9 @@ export const experiences: Experience[] = [
     period: "Sep 2023 – May 2026",
     start: "2023-09-01",
     end: "2026-05-31",
-    type: "Consultant",
+    type: "Full-time",
     summary:
-      "Embedded engineer in the Google Meet Video team, working directly on real-time video quality at global scale. Promoted from Software Engineer to Senior after 16 months.",
+      "Embedded engineer in the Google Meet Video team, working directly on real-time video quality at global scale. Hired by Codemill AB, whose team transferred to HCLTech Sweden AB in a business transfer during my tenure. Promoted from Software Engineer to Senior after 16 months.",
     achievements: [
       "Improved compression efficiency and end-to-end latency in Google Meet for hundreds of millions of users, by running codec testing and parameter tuning across VP8, VP9 and AV1 against objective video quality targets.",
       "Cut video codec test cycle time by 30% and expanded coverage with 50+ new test cases spanning VP8 and AV1, by designing and automating the regression testing pipeline in Python.",
@@ -169,3 +171,17 @@ export const experiences: Experience[] = [
     tech: ["RF planning", "DTT", "Signal coverage analysis"],
   },
 ];
+
+/** Sentinel for an ongoing role, so it sorts ahead of every finished one. */
+const ONGOING = "9999-12-31";
+
+/**
+ * Professional history, sorted newest first by end date.
+ *
+ * Sorting rather than trusting the array order matters here because the
+ * tenures overlap: the Google Meet role ran to May 2026 while Elvy ran May to
+ * August 2026, so the CV's order is not the chronological one.
+ */
+export const experiences: Experience[] = [...roles].sort((a, b) =>
+  (b.end ?? ONGOING).localeCompare(a.end ?? ONGOING),
+);

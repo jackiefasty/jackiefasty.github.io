@@ -1,5 +1,4 @@
 import { education } from "@/content/education";
-import { experiences } from "@/content/experience";
 import { profile } from "@/content/profile";
 import { skillCategories } from "@/content/skills";
 
@@ -11,8 +10,6 @@ import { skillCategories } from "@/content/skills";
  * marketing copy.
  */
 function buildPersonSchema() {
-  const [currentRole] = experiences;
-
   return {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -34,9 +31,15 @@ function buildPersonSchema() {
       "@type": "CollegeOrUniversity",
       name: entry.institution,
     })),
-    worksFor: {
-      "@type": "Organization",
-      name: currentRole.client ?? currentRole.company,
+    // `hasOccupation` rather than `worksFor`: the most recent role has ended,
+    // so naming an employer would assert a current job that does not exist.
+    hasOccupation: {
+      "@type": "Occupation",
+      name: profile.role,
+      occupationLocation: {
+        "@type": "City",
+        name: "Barcelona",
+      },
     },
   };
 }
