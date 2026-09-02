@@ -14,6 +14,14 @@ export const profile: Profile = {
     "I make real-time video hold up at scale: codecs, WebRTC internals and the media pipelines behind them.",
   location: "Barcelona, Spain",
   availability: "Open to senior and staff engineering roles",
+  // 300x375 is the full resolution available from the source photo, so the
+  // about section caps the rendered width to avoid upscaling it.
+  photo: {
+    src: "/borja-javierre.webp",
+    alt: "Borja Javierre",
+    width: 300,
+    height: 375,
+  },
   summary: [
     "I spent three years embedded in Google Meet's Video team, tuning C++ and Python media pipelines, VP8/VP9/AV1 codecs and WebRTC internals for a product used by hundreds of millions of people. I was promoted to Senior Engineer after 16 months.",
     "Across five-plus years I have worked the full width of real-time media: FFmpeg and GStreamer pipelines, automated codec regression testing, bandwidth estimation and jitter buffer behaviour, and ML models that predict perceived video quality. More recently I have owned backend and infrastructure end to end: FastAPI services, PostgreSQL migrations and GCP infrastructure as code with Terraform.",

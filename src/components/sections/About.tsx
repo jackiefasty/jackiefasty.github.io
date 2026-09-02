@@ -1,13 +1,15 @@
+import { ProfilePhoto } from "@/components/about/ProfilePhoto";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { education, languages } from "@/content/education";
 import { profile } from "@/content/profile";
 
 /**
- * About section: the senior narrative, with education and languages alongside.
+ * About section: the senior narrative, with the photo, education and languages
+ * alongside.
  *
- * The two-column layout puts prose in the wider column and the factual
- * sidebar of degrees and languages in a sticky rail on large screens.
+ * The two-column layout puts prose in the wider column and the photo plus the
+ * factual sidebar of degrees and languages in a sticky rail on large screens.
  */
 export function About() {
   return (
@@ -31,6 +33,10 @@ export function About() {
 
           <div className="space-y-8 lg:sticky lg:top-24 lg:self-start">
             <Reveal index={1}>
+              <ProfilePhoto />
+            </Reveal>
+
+            <Reveal index={2}>
               <div className="surface-card p-6">
                 <h3 className="font-mono text-xs font-semibold tracking-[0.18em] text-accent uppercase">
                   Education
@@ -53,7 +59,7 @@ export function About() {
               </div>
             </Reveal>
 
-            <Reveal index={2}>
+            <Reveal index={3}>
               <div className="surface-card p-6">
                 <h3 className="font-mono text-xs font-semibold tracking-[0.18em] text-accent uppercase">
                   Languages

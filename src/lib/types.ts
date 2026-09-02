@@ -34,6 +34,17 @@ export interface Stat {
   detail: string;
 }
 
+/** A profile photo with the intrinsic dimensions needed to reserve its space. */
+export interface Photo {
+  /** Path inside `public/`. */
+  src: string;
+  alt: string;
+  /** Intrinsic pixel width, so the browser can reserve layout space. */
+  width: number;
+  /** Intrinsic pixel height. */
+  height: number;
+}
+
 /** Identity, positioning and contact details. */
 export interface Profile {
   name: string;
@@ -41,6 +52,7 @@ export interface Profile {
   tagline: string;
   location: string;
   availability: string;
+  photo: Photo;
   /** Short paragraphs for the about section, in reading order. */
   summary: string[];
   email: string;
