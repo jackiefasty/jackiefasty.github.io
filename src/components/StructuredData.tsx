@@ -18,6 +18,7 @@ function buildPersonSchema() {
     url: profile.siteUrl,
     jobTitle: profile.role,
     email: `mailto:${profile.email}`,
+    image: `${profile.siteUrl}${profile.photo.src}`,
     description: profile.summary[0],
     address: {
       "@type": "PostalAddress",
