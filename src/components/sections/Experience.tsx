@@ -20,7 +20,7 @@ export function Experience() {
         <SectionHeading
           eyebrow="Experience"
           title="Professional journey"
-          description="Eight roles across real-time media, streaming, payments and broadcast — with the measurable outcome of each one stated first."
+          description="Eight roles across real-time media, streaming, payments and broadcast. The measurable outcome of each one is stated first."
         />
 
         <div className="relative">

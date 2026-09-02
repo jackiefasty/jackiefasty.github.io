@@ -1,6 +1,6 @@
 # jackiefasty.github.io
 
-Personal portfolio of **Borja Javierre** — Senior Video Systems & Real-Time
+Personal portfolio of **Borja Javierre**, Senior Video Systems & Real-Time
 Communications Engineer.
 
 Live at **https://jackiefasty.github.io/**

@@ -11,12 +11,12 @@ export const profile: Profile = {
   name: "Borja Javierre",
   role: "Senior Video Systems & Real-Time Communications Engineer",
   tagline:
-    "I make real-time video hold up at scale — codecs, WebRTC internals and the media pipelines behind them.",
+    "I make real-time video hold up at scale: codecs, WebRTC internals and the media pipelines behind them.",
   location: "Barcelona, Spain",
   availability: "Open to senior and staff engineering roles",
   summary: [
     "I spent three years embedded in Google Meet's Video team, tuning C++ and Python media pipelines, VP8/VP9/AV1 codecs and WebRTC internals for a product used by hundreds of millions of people. I was promoted to Senior Engineer after 16 months.",
-    "Across five-plus years I have worked the full width of real-time media: FFmpeg and GStreamer pipelines, automated codec regression testing, bandwidth estimation and jitter buffer behaviour, and ML models that predict perceived video quality. More recently I have owned backend and infrastructure end to end — FastAPI services, PostgreSQL migrations and GCP infrastructure as code with Terraform.",
+    "Across five-plus years I have worked the full width of real-time media: FFmpeg and GStreamer pipelines, automated codec regression testing, bandwidth estimation and jitter buffer behaviour, and ML models that predict perceived video quality. More recently I have owned backend and infrastructure end to end: FastAPI services, PostgreSQL migrations and GCP infrastructure as code with Terraform.",
     "I also build with AI rather than around it. I designed a multi-agent development workflow using LLMs, MCP servers and RAG retrieval that became a shared engineering standard on my team, cutting an estimated 20+ engineering hours a month on multi-repository work.",
   ],
   email: "borja.javierre@gmail.com",

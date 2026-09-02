@@ -22,7 +22,7 @@ export const experiences: Experience[] = [
     achievements: [
       "Improved compression efficiency and end-to-end latency in Google Meet for hundreds of millions of users, by running codec testing and parameter tuning across VP8, VP9 and AV1 against objective video quality targets.",
       "Cut video codec test cycle time by 30% and expanded coverage with 50+ new test cases spanning VP8 and AV1, by designing and automating the regression testing pipeline in Python.",
-      "Improved real-time communication reliability under packet loss and constrained bandwidth, by tuning WebRTC internals — bandwidth estimation, jitter buffer behaviour and congestion control — in production C++ code.",
+      "Improved real-time communication reliability under packet loss and constrained bandwidth, by tuning WebRTC internals in production C++ code: bandwidth estimation, jitter buffer behaviour and congestion control.",
       "Enabled reliable media processing and format handling across the team's test and analysis tooling, by integrating FFmpeg and GStreamer pipelines for transcoding, container handling and stream ingest.",
       "Reached 87–92% accuracy in video quality prediction, by tuning ML model parameters and rebuilding the training and evaluation loop in Python.",
       "Drove OKR planning for H1/H2 2025 across 4 concurrent projects, by running 1:1s and weekly syncs and authoring quarterly and annual reviews presented to Google stakeholders.",

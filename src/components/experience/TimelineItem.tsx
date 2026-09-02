@@ -38,8 +38,7 @@ export function TimelineItem({ experience }: { experience: Experience }) {
               {experience.company}
               {experience.client && (
                 <span className="text-muted">
-                  {" "}
-                  — embedded at {experience.client}
+                  , embedded at {experience.client}
                 </span>
               )}
             </p>

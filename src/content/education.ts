@@ -5,7 +5,7 @@ export const education: Education[] = [
   {
     id: "kth",
     degree: "MEng",
-    field: "ICT Innovation — Visual Computing track",
+    field: "ICT Innovation, Visual Computing track",
     institution: "KTH Royal Institute of Technology",
     location: "Stockholm, Sweden",
     period: "2021 – 2023",
@@ -24,7 +24,7 @@ export const education: Education[] = [
 export const languages: Language[] = [
   { name: "Spanish", level: "Native" },
   { name: "Catalan", level: "Native" },
-  { name: "English", level: "C1 — professional" },
+  { name: "English", level: "C1, professional" },
   { name: "Swedish", level: "B1" },
   { name: "French", level: "A1" },
 ];
