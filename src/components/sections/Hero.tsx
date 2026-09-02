@@ -60,7 +60,7 @@ export function Hero() {
             </span>
             <span className="inline-flex items-center gap-2">
               <span className="size-1.5 rounded-full bg-subtle" aria-hidden />
-              EU citizen — no visa sponsorship required
+              EU citizen, no visa sponsorship required
             </span>
           </p>
         </Reveal>

@@ -28,10 +28,10 @@ function getServerSnapshot(): Theme {
 /**
  * Reads and toggles the active theme.
  *
- * The theme is owned by the DOM — an inline script sets it before React loads —
- * so it is consumed here as an external store rather than mirrored into React
- * state. That keeps a single source of truth and avoids a render pass that
- * would briefly disagree with what is on screen.
+ * The theme is owned by the DOM, since an inline script sets it before React
+ * loads. It is consumed here as an external store rather than mirrored into
+ * React state. That keeps a single source of truth and avoids a render pass
+ * that would briefly disagree with what is on screen.
  *
  * @returns The active theme and a function that switches to the other one.
  */

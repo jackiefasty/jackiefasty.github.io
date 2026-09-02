@@ -54,7 +54,7 @@ export function Contact() {
         <SectionHeading
           eyebrow="Contact"
           title="Let's talk"
-          description="I'm open to senior and staff engineering roles in real-time media, video infrastructure and backend systems — in Barcelona, remote, or hybrid across the EU."
+          description="I'm open to senior and staff engineering roles in real-time media, video infrastructure and backend systems. Barcelona, remote, or hybrid across the EU."
         />
 
         <div className="grid gap-8 lg:grid-cols-[1fr_1fr]">
@@ -63,7 +63,7 @@ export function Contact() {
               <AvailabilityBadge>{profile.availability}</AvailabilityBadge>
 
               <p className="mt-5 text-sm leading-relaxed text-muted">
-                The fastest way to reach me is email — I reply to everything
+                The fastest way to reach me is email; I reply to everything
                 that isn&apos;t automated. If you would rather read first, the
                 résumé below has the full detail behind every figure on this
                 page.

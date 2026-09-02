@@ -12,10 +12,10 @@ export const projects: Project[] = [
     id: "webrtc-playground",
     title: "WebRTC Playground",
     summary:
-      "Two static WebRTC test apps for experimenting with simulcast, codec selection and camera capture — a full sender/receiver call simulated in a single page, with no signalling server.",
+      "Two static WebRTC test apps for experimenting with simulcast, codec selection and camera capture. A full sender/receiver call is simulated in a single page, with no signalling server.",
     details: [
-      "The simulcast playground simulates a complete call in one page by pairing two RTCPeerConnections and exchanging ICE candidates and SDP locally. That removes the need for any signalling or media server and makes the whole tool deployable as static files — at the cost of not being a real network test, which is the trade-off it is designed around.",
-      "Adds and removes simulcast layers at runtime and tunes each one independently — maxBitrate, scaleResolutionDownBy, maxFramerate and scalabilityMode — so the effect of a single encoding parameter can be isolated and observed on both the sender and receiver side.",
+      "The simulcast playground simulates a complete call in one page by pairing two RTCPeerConnections and exchanging ICE candidates and SDP locally. That removes the need for any signalling or media server and makes the whole tool deployable as static files. The cost is that it is not a real network test, which is the trade-off it is designed around.",
+      "Adds and removes simulcast layers at runtime and tunes each one independently: maxBitrate, scaleResolutionDownBy, maxFramerate and scalabilityMode. The effect of a single encoding parameter can then be isolated and observed on both the sender and receiver side.",
       "Forces specific codecs across VP8, VP9, AV1 and H.264 and applies degradation preferences, making cross-codec comparisons reproducible in the browser. Received layers can be recorded to WebM for offline inspection.",
       "Polls getStats() periodically and surfaces per-layer bitrate, framerate, quantisation parameter, keyframes and encoder time, turning the browser into a lightweight instrument for encoder behaviour.",
       "The companion camera-controls app enumerates devices and exercises local capture from VGA up to 8K, reporting aspect ratio, framerate and resolution and applying advanced MediaTrack constraints such as exposure and zoom.",
@@ -42,11 +42,11 @@ export const projects: Project[] = [
     id: "multi-agent-framework",
     title: "Multi-Agent AI Development Framework",
     summary:
-      "A role-specialised agent system — planner, backend and frontend coders, tester, reviewer — built on an LLM CLI and adopted as a shared team engineering standard.",
+      "A role-specialised agent system built on an LLM CLI, with a planner, backend and frontend coders, a tester and a reviewer; adopted as a shared team engineering standard.",
     details: [
       "Splits development work across specialised agents with distinct responsibilities and tool access, so planning, implementation, testing and review each run against their own constraints instead of one generalist prompt.",
       "Integrates MCP servers for tool access and RAG retrieval over the codebase, letting agents ground their changes in the repositories they are editing rather than in the prompt alone.",
-      "Codifies agent behaviour in a written specification, which made the workflow reviewable and transferable — it was adopted as a shared engineering standard across the team.",
+      "Codifies agent behaviour in a written specification, which made the workflow reviewable and transferable; it was adopted as a shared engineering standard across the team.",
       "Cut an estimated 20+ engineering hours per month of feature lead time on multi-repository work at Elvy (Geofy).",
     ],
     category: "AI Tooling",

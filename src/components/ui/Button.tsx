@@ -21,9 +21,9 @@ interface ButtonLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 /**
  * Anchor styled as a button.
  *
- * Every call to action on the site is a link — to a section, a mailto, or an
- * external profile — so there is no `<button>` variant. Links to other origins
- * get `target="_blank"` and `rel="noreferrer"` automatically.
+ * Every call to action on the site is a link, whether to a section, a mailto,
+ * or an external profile, so there is no `<button>` variant. Links to other
+ * origins get `target="_blank"` and `rel="noreferrer"` automatically.
  */
 export function ButtonLink({
   href,

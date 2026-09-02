@@ -6,7 +6,7 @@
  * Declared with `@theme inline` so each utility resolves straight to the
  * underlying custom property. That is what lets a single palette swap on
  * `[data-theme]` drive every colour utility, and it keeps Tailwind's opacity
- * modifiers working — v4 implements those with `color-mix()`, so the token
+ * modifiers working. v4 implements those with `color-mix()`, so the token
  * values must be complete colours rather than v3-style channel triples.
  */
 @theme inline {

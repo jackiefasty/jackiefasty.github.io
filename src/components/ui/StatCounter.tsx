@@ -16,8 +16,8 @@ function easeOutExpo(progress: number): number {
  *
  * The final value is what renders server-side, so the correct number is on
  * screen even if JS never runs. The count-up only starts from the intersection
- * callback, which fires while the card is still fading in — so resetting to
- * zero is not visible — and is skipped entirely under `prefers-reduced-motion`.
+ * callback, which fires while the card is still fading in, so resetting to
+ * zero is not visible. It is skipped entirely under `prefers-reduced-motion`.
  */
 export function StatCounter({ stat }: { stat: Stat }) {
   const ref = useRef<HTMLDivElement>(null);

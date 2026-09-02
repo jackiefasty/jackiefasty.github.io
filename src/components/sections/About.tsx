@@ -7,7 +7,7 @@ import { profile } from "@/content/profile";
  * About section: the senior narrative, with education and languages alongside.
  *
  * The two-column layout puts prose in the wider column and the factual
- * sidebar — degrees and languages — in a sticky rail on large screens.
+ * sidebar of degrees and languages in a sticky rail on large screens.
  */
 export function About() {
   return (
@@ -39,7 +39,7 @@ export function About() {
                   {education.map((entry) => (
                     <li key={entry.id}>
                       <p className="text-sm font-semibold text-fg">
-                        {entry.degree} — {entry.field}
+                        {entry.degree}: {entry.field}
                       </p>
                       <p className="mt-1 text-sm text-muted">
                         {entry.institution}
