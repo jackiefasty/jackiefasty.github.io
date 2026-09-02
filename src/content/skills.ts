@@ -1,0 +1,110 @@
+import type { SkillCategory } from "@/lib/types";
+
+/**
+ * Technical skills, grouped exactly as they appear in the CV so the site and
+ * the PDF tell the same story.
+ */
+export const skillCategories: SkillCategory[] = [
+  {
+    id: "video-media",
+    title: "Video & Media",
+    blurb: "The core specialism: codecs, transport and perceived quality.",
+    skills: [
+      "WebRTC",
+      "libwebrtc",
+      "RTP/RTCP",
+      "SDP",
+      "Jitter buffer",
+      "Bandwidth estimation",
+      "Congestion control",
+      "Simulcast",
+      "VP8",
+      "VP9",
+      "AV1",
+      "H.264",
+      "Transcoding",
+      "FFmpeg",
+      "GStreamer",
+      "Latency optimisation",
+      "QoE & video quality metrics",
+    ],
+  },
+  {
+    id: "languages",
+    title: "Languages",
+    blurb: "Production C++ and Python daily, TypeScript across the stack.",
+    skills: ["C++", "Python", "TypeScript", "JavaScript", "SQL", "C", "C#"],
+  },
+  {
+    id: "testing-cicd",
+    title: "Testing & CI/CD",
+    blurb: "Regression suites and harnesses that keep codec work honest.",
+    skills: [
+      "Automated regression testing",
+      "Codec test harnesses",
+      "Jenkins",
+      "GitHub Actions",
+      "CI/CD pipelines",
+      "API testing",
+      "Docker",
+      "Linux",
+    ],
+  },
+  {
+    id: "backend-cloud",
+    title: "Backend & Cloud",
+    blurb: "Services and infrastructure owned from design through release.",
+    skills: [
+      "FastAPI",
+      "REST APIs",
+      "Microservices",
+      "PostgreSQL",
+      "GCP (Cloud Run, Firestore, Pub/Sub, IAM)",
+      "Terraform",
+      "Infrastructure as Code",
+      "AWS",
+    ],
+  },
+  {
+    id: "ml-data",
+    title: "ML & Data",
+    blurb: "Predictive models applied to video quality and support workflows.",
+    skills: [
+      "Model parameter tuning",
+      "Video quality prediction",
+      "Python data stack",
+      "SQL",
+      "Predictive modelling",
+    ],
+  },
+  {
+    id: "ai-assisted",
+    title: "AI-Assisted Development",
+    blurb: "Agentic workflows used as a delivery multiplier, not a novelty.",
+    skills: [
+      "LLMs",
+      "MCP servers",
+      "RAG pipelines",
+      "Agentic workflows",
+      "Claude Code",
+      "Codex",
+      "Prompt engineering",
+    ],
+  },
+  {
+    id: "ways-of-working",
+    title: "Ways of Working",
+    blurb: "Planning, review and mentoring alongside the engineering.",
+    skills: [
+      "Agile & Scrum",
+      "Sprint planning",
+      "OKR frameworks",
+      "Technical design documents",
+      "Code review",
+      "Mentoring",
+      "Stakeholder management",
+      "Jira",
+      "Confluence",
+    ],
+  },
+];

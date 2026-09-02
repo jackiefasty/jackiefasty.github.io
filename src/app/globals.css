@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens.
+ *
+ * Declared with `@theme inline` so each utility resolves straight to the
+ * underlying custom property. That is what lets a single palette swap on
+ * `[data-theme]` drive every colour utility, and it keeps Tailwind's opacity
+ * modifiers working — v4 implements those with `color-mix()`, so the token
+ * values must be complete colours rather than v3-style channel triples.
+ */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-border: var(--border);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+}
+
+/* Dark is the default, so it lives on :root and light overrides it. */
+:root {
+  --bg: #060a11;
+  --surface: #0d141f;
+  --surface-raised: #131c2a;
+  --border: #222f42;
+  --fg: #ebf2fa;
+  /* Both greys clear 4.5:1 against --bg and --surface at 12px, the smallest
+     size they are used at. */
+  --muted: #a3b4c6;
+  --subtle: #7d8fa4;
+  --accent: #22d3ee;
+  --accent-soft: #5eead4;
+
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: #fafbfd;
+  --surface: #ffffff;
+  --surface-raised: #f4f7fb;
+  --border: #dae2ec;
+  --fg: #0c1420;
+  --muted: #3f4e60;
+  --subtle: #5a6b7e;
+  --accent: #0a7d96;
+  --accent-soft: #0d9488;
+
+  color-scheme: light;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Offset anchor targets so the sticky header never covers a heading. */
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-bg text-fg antialiased;
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-balance;
+    letter-spacing: -0.022em;
+  }
+
+  p {
+    @apply text-pretty;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--accent) 28%, transparent);
+  }
+
+  /* Honour the OS preference for anyone who has asked for less motion. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/*
+ * Entrance animations.
+ *
+ * These are deliberately CSS-only. A JS-driven reveal has to render its
+ * content at `opacity: 0` in the HTML and rely on hydration to make it
+ * visible, which leaves the page blank if the bundle is slow or fails. Here
+ * the content is visible by default and the animation is purely additive.
+ */
+/*
+ * Opacity reaches full well before the movement finishes. Text held at partial
+ * opacity fails contrast checks, and on a scroll-driven timeline an element can
+ * sit mid-animation for as long as the reader scrolls slowly.
+ */
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  45% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Movement without fade, for elements that must paint immediately. */
+@keyframes reveal-slide {
+  from {
+    transform: translateY(14px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /*
+   * Time-based entrance for above-the-fold content. Scroll-driven timelines
+   * are already complete for anything visible on load, so the hero needs a
+   * regular animation to have any entrance at all.
+   */
+  .reveal-load {
+    animation: reveal-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(var(--reveal-index, 0) * 70ms);
+  }
+
+  /*
+   * For the hero headline and role, which are the Largest Contentful Paint
+   * candidates. An element at `opacity: 0` does not count as painted, so
+   * fading them in would push LCP out by the full animation duration.
+   */
+  .reveal-slide {
+    animation: reveal-slide 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(var(--reveal-index, 0) * 70ms);
+  }
+
+  /*
+   * Scroll-driven entrance for everything below the fold, staggered by
+   * offsetting each element's range rather than by delay (delays do not apply
+   * to progress-based timelines). Guarded by @supports so browsers without
+   * scroll-driven animations render the content in place instead of hiding it.
+   */
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal-in 1s linear both;
+      animation-timeline: view();
+      animation-range: entry calc(2% + var(--reveal-index, 0) * 6%) entry
+        calc(64% + var(--reveal-index, 0) * 6%);
+    }
+  }
+}
+
+@layer utilities {
+  /* Page-width container used by every section. */
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  /* Vertical rhythm shared across sections. */
+  .section-y {
+    @apply py-20 sm:py-28;
+  }
+
+  .text-gradient {
+    background-image: linear-gradient(
+      100deg,
+      var(--fg) 0%,
+      var(--fg) 40%,
+      var(--accent) 78%,
+      var(--accent-soft) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Translucent card surface used by skill, project and timeline cards. */
+  .surface-card {
+    @apply rounded-2xl border border-border bg-surface/70 backdrop-blur-sm;
+  }
+
+  /* Faint grid, anchored top-centre, that sits behind the hero. */
+  .backdrop-grid {
+    --grid-line: color-mix(in srgb, var(--border) 55%, transparent);
+
+    background-image:
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(
+      ellipse 80% 60% at 50% 0%,
+      black 10%,
+      transparent 75%
+    );
+  }
+}
